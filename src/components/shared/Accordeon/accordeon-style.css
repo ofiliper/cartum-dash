@@ -1,0 +1,13 @@
+.custom-rounded-top {
+    border-radius: 25px 55px 25px 55px;
+    /* Bordas arredondadas no topo */
+}
+
+.container-rounded-top {
+    border-radius: 25px 55px 15px 20px;
+}
+
+.rounded-lg {
+    border-radius: 0 0 10px 10px;
+    /* Bordas menos arredondadas na base */
+}

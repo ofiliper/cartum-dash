@@ -4,25 +4,67 @@ import AuthContainer from "@/components/shared/Auth/AuthContainer";
 import Button from "@/components/shared/Button";
 import Input from "@/components/shared/Input";
 import { useAuthData } from "@/store/auth/AuthData";
+import { fnFormatPhone } from "@/utils/functions/fnFormatPhone";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { BiCheck } from "react-icons/bi";
 
-export default function Login() {
+export default function Forgot() {
 
     const authHook = useAuthData();
-    const [user, setUser] = useState<{ email: string; password: string }>({ email: '', password: '' });
+    const [user, setUser] = useState<{
+        email: string;
+    }>({
+        email: '',
+    });
     const [alert, setAlert] = useState<{ show: boolean; message: string }>({ show: false, message: '' });
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [signupConfirm, setSignupConfirm] = useState<boolean>(false);
+
     const router = useRouter();
 
-    const signin = () => {
-        if (!user.email && !user.password) return
+    const forgot = () => {
+
+        const hasEmptyField = Object.values(user).some(value => value.trim() === '');
+        if (hasEmptyField) return
+
         setIsLoading(true)
-        authHook.fnFetchLogin({ email: user.email, password: user.password })
-            .then(() => router.push("/dashboard"))
-            .catch(() => setAlert({ show: true, message: 'Usuário inválido' }))
+        authHook.fnFetchForgot({
+            email: user.email,
+        })
+            .then(() => {
+                setSignupConfirm(true);
+            })
+            .catch(() => setAlert({ show: true, message: 'Conta inválida' }))
             .finally(() => setIsLoading(false))
+    }
+
+    if (signupConfirm) {
+        return (
+            <AuthContainer>
+                <div className="bg-white w-11/12 sm:w-[560px] rounded-lg py-10 px-10 sm:px-20 flex items-center flex-col">
+
+                    <div className="text-6xl text-green-600">
+                        <BiCheck />
+                    </div>
+
+                    <div className="text-center py-4">
+
+                        <h4 className="text-2xl font-extrabold">E-mail enviado</h4>
+                        <p>Um email foi enviado para a sua caixa de entrada. Caso não encontre, verifique na caixa de SPAM.</p>
+
+                    </div>
+
+                    <div className="flex justify-center">
+                        <Button
+                            label="Voltar para o login"
+                            onClick={() => { router.push("/auth/login") }}
+                        />
+                    </div>
+                </div>
+            </AuthContainer>
+        )
     }
 
     return (
@@ -40,8 +82,9 @@ export default function Login() {
                 <div className="flex flex-col gap-2">
 
                     <Input
-                        label="Seu e-mail"
+                        label="Seu e-mail de cadastro"
                         value={user.email}
+                        type="email"
                         onChange={(e) => {
                             setAlert({ ...alert, show: false });
                             setUser({
@@ -51,22 +94,6 @@ export default function Login() {
                         }}
                     />
 
-                    <Input
-                        value={user.password}
-                        type="password"
-                        label="Sua senha"
-                        onChange={(e) => {
-                            setAlert({ ...alert, show: false });
-                            setUser({
-                                ...user,
-                                password: e.target.value
-                            })
-                        }}
-                    />
-
-                    <div className="flex justify-start text-sm mb-2">
-                        <a href="/auth/esqueci">Esqueceu a senha?</a>
-                    </div>
 
                     {
                         alert.show && (
@@ -78,17 +105,18 @@ export default function Login() {
 
                     <div className="flex justify-center">
                         <Button
-                            label="Conectar agora"
+                            label="Recuperar senha"
                             isLoading={isLoading}
-                            onClick={signin}
+                            onClick={forgot}
+                            isDisabled={user.email === ''}
                         />
                     </div>
                 </div>
 
                 <div className="py-6 text-center text-lg">
-                    Ainda não tem uma conta?
-                    <a href="/auth/cadastrar">
-                        <b className="text-violet-800 ml-2">Cadastre-se</b>
+                    Já tem uma conta?
+                    <a href="/auth/login">
+                        <b className="text-violet-800 ml-2">Faça o login</b>
                     </a>
                 </div>
 

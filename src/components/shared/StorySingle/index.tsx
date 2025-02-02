@@ -7,8 +7,9 @@ import { useStore } from 'zustand';
 import Loader from '@/components/shared/Loader';
 import "./story-single-style.css"
 import { BiChevronLeft } from 'react-icons/bi';
+import React from 'react';
 
-export default function StorySingle({ children }: { children: React.ReactElement }) {
+export default function StorySingle({ children }: { children?: React.ReactElement }) {
 
     const singleStory = useStore(singleStoryStore);
 
@@ -33,21 +34,24 @@ export default function StorySingle({ children }: { children: React.ReactElement
             />
 
             {/* Conteúdo acima do blur */}
-            <div className="relative z-10 w-[800px] h-screen mx-auto bg-white overflow-y-scroll pb-40">
+            <div className="relative z-10 w-full sm:w-[800px] h-screen mx-auto bg-white overflow-y-scroll pb-40">
                 <div
-                    className="h-[480px] w-full"
+                    className="h-[320px] sm:h-[480px] w-full"
                     style={{
                         backgroundImage: `url(${singleStory.data.image})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                     }}
                 />
-                <div className="py-10 px-10">
+                <div className="py-10 px-7 sm:px-10">
                     <h4 className="text-4xl mb-4 font-extrabold">{singleStory.data.title}</h4>
                     <p className="text-xl">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper erat ac tempus dapibus. Fusce non ex venenatis, sollicitudin dolor et, viverra sem. In ac dolor aliquam, volutpat nisl quis, lacinia diam. Praesent nisi enim, volutpat ac nisl sit amet, cursus ultrices enim. Sed elementum velit dui, suscipit ultrices tortor efficitur non. Fusce egestas sem at consectetur posuere. Donec venenatis in neque ac cursus.
-
-                        Maecenas posuere semper posuere. Nam lacinia ante leo, vitae ornare sem bibendum id. Aliquam id erat porttitor, vulputate erat sit amet, pharetra metus. Pellentesque in sapien vel est viverra finibus non vitae arcu. Vestibulum varius maximus augue, quis interdum ipsum pulvinar et. Nulla suscipit molestie libero sit amet tincidunt. Sed in purus et neque posuere accumsan in non tellus. Cras id enim in quam maximus lobortis. Maecenas scelerisque, urna non laoreet commodo, massa augue mattis sem, euismod viverra arcu nunc id tellus. Sed malesuada tortor eu urna auctor, at eleifend mauris iaculis. Phasellus dignissim volutpat ipsum, eu dapibus eros tincidunt eu. Cras at quam at quam vulputate finibus in at enim.
+                        {singleStory.data.content.replace(/\\n/g, "\n").split(/\n+/).map((item, index) => (
+                            <React.Fragment key={index}>
+                                {item}
+                                <br /><br />
+                            </React.Fragment>
+                        ))}
                     </p>
                     {children}
                 </div>
@@ -62,7 +66,7 @@ export default function StorySingle({ children }: { children: React.ReactElement
                     onPlay={(e) => console.log("onPlay")}
                 />
             </div>
-        </div>
+        </div >
 
     )
 }

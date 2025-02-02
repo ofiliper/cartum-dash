@@ -13,7 +13,7 @@ export default function ModalContainer({ children, onClick }: { children: React.
                     onClick && (onClick())
                 }
             }}
-            className={`modal-container h-screen w-full bg-[#1c24347d] fixed top-0 left-0 z-[99] flex justify-center items-center 
+            className={`modal-container h-screen w-full bg-[#1c24347d] fixed top-0 left-0 z-[999] flex justify-center items-center 
           ${modalIsOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
         >
             {children}

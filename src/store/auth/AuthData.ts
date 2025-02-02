@@ -79,8 +79,8 @@ export const useAuthData = () => {
         try {
 
             let _result = await fnFetch({
-                url: `${process.env.NEXT_PUBLIC_API_URL}/auth/recover`,
-                method: 'PUT',
+                url: `${process.env.NEXT_PUBLIC_API_URL}/auth/reset-pass`,
+                method: 'POST',
                 body: _obj
             })
 
@@ -111,7 +111,7 @@ export const useAuthData = () => {
         try {
 
             let _result = await fnFetch({
-                url: `${process.env.NEXT_PUBLIC_API_URL}/auth/recover`,
+                url: `${process.env.NEXT_PUBLIC_API_URL}/auth/recover-pass`,
                 method: 'POST',
                 body: _obj
             })
@@ -153,7 +153,7 @@ export const useAuthData = () => {
 
             if (_result?.ok) {
 
-                console.log(_result)
+                return _result.data;
 
             } else {
 

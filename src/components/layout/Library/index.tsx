@@ -26,10 +26,10 @@ export default function Library() {
                 {
                     isFetching
                         ? <Skeleton className="h-[320px] !w-[320px] shadow" />
-                        : <div className="grid grid-cols-4 gap-4 w-full">
+                        : <div className="flex flex-col sm:grid sm:grid-cols-4 gap-4 w-full">
                             <a
                                 href="/dashboard/criar"
-                                className="shadow hover:shadow-md hover:scale-105 transition duration-300 ease-in-out rounded-xl cursor-pointer flex items-center justify-center">
+                                className="shadow hover:shadow-md hover:scale-105 transition duration-300 ease-in-out rounded-xl cursor-pointer flex items-center justify-center py-10 sm:py-0">
                                 <div className="flex flex-col items-center">
                                     <div className="flex justify-center items-center rounded-full h-10 w-10 border border-slate-600 text-5xl text-slate-400 border-slate-400">
                                         <BiPlus />

@@ -16,7 +16,7 @@ const TermosDeUso = () => {
             <section className="mt-6">
                 <h2 className="text-lg font-semibold">2. DESCRIÇÃO DO SERVIÇO</h2>
                 <p>
-                    O Cartum.com.br permite que usuários criem histórias infantis personalizadas utilizando tecnologia de inteligência artificial. O serviço é fornecido "como está", sem garantias de que as histórias geradas sejam completamente livres de erros, imprecisões ou inadequações para todas as faixas etárias.
+                    O Cartum.com.br permite que usuários criem histórias infantis personalizadas utilizando tecnologia de inteligência artificial. O serviço é fornecido como está, sem garantias de que as histórias geradas sejam completamente livres de erros, imprecisões ou inadequações para todas as faixas etárias.
                 </p>
             </section>
 

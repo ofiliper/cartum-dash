@@ -3,12 +3,14 @@ import { create } from 'zustand'
 
 interface IProps {
     modalIsOpen: boolean,
-    modalContent: string
+    modalContent: string,
+    menuIsOpen: boolean
 }
 
 const stateDefault: IProps = {
     modalIsOpen: false,
-    modalContent: ''
+    modalContent: '',
+    menuIsOpen: false
 }
 
 type Store = {

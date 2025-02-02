@@ -1,4 +1,5 @@
 import { useStoriesData } from "@/store/stories/StoriesData";
+import { useUserData } from "@/store/user/userData";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react"
 import { toast } from "react-toastify";
@@ -7,11 +8,13 @@ export default function Step2() {
 
     const storyHook = useStoriesData();
     const router = useRouter();
+    const userHook = useUserData();
 
     useEffect(() => {
         storyHook.fnFetchCreateStory()
             .then((data) => {
-                router.push(`/dashboard/${data.id}`)
+                userHook.fnFetchUser();
+                router.push(`/dashboard/${data.id_story}`)
             })
             .catch(() => {
                 toast.error("Não foi possível gerar a sua história.")

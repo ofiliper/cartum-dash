@@ -12,6 +12,7 @@ export interface IStories {
     challenges: string;
     gender: string;
     content: string;
+    age: string;
     acceptTerms: boolean;
     step: number;
 }
@@ -22,6 +23,7 @@ const stateDefault: IStories = {
     characters: '',
     challenges: '',
     gender: '',
+    age: '',
     content: '',
     acceptTerms: false,
     step: 0,

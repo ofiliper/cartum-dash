@@ -58,7 +58,7 @@ export default function Saldo() {
                         </p>
                     </div>
 
-                    <div className="flex items-start gap-3">
+                    <div className="flex flex-col sm:flex-row items-center sm:items-start items-start gap-3">
                         {
                             isFetching
                                 ? Array.from({ length: 3 }).map((_, i) => (
@@ -72,7 +72,7 @@ export default function Saldo() {
                                     return (
                                         <div
                                             key={i}
-                                            className="flex flex-col items-center bg-gray-100 p-6 rounded shadow bg-white rounded-xl">
+                                            className="w-11/12 sm:w-auto flex flex-col items-center bg-gray-100 p-6 rounded shadow bg-white rounded-xl">
                                             <h3 className="text-3xl font-bold">
                                                 {item.name}
                                             </h3>

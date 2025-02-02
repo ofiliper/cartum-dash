@@ -31,20 +31,20 @@ export default function TopbarUserMenu() {
 
     return (
 
-        <div ref={selectRef} className="relative !z-[997]">
+        <div ref={selectRef} className="relative !z-[97]">
 
             <button
                 onClick={() => setIsActive(!isActive)}
                 className="flex items-center gap-2">
                 <span
-                    className="text-md text-black transition-all duration-400 ease-in-out rounded-full w-30 h-10 flex items-center">
+                    className="text-md text-black transition-all duration-400 ease-in-out rounded-full sm:w-30 h-10 flex items-center">
                     <IoMdArrowDropdown />
                     <span className="text-xs font-bold">Minha conta</span>
                 </span>
             </button>
 
             <div className={`absolute bg-white rounded-xl w-60 right-0 !z-9 border border-black/5 shadow-xl transition-all duration-400 ${isActive ? 'mb-2 opacity-100 visible' : 'mb-0 opacity-0 invisible'}`}>
-                <div className="px-2 pt-2">
+                {/* <div className="px-2 pt-2">
                     <a
                         href={"/dashboard/meus-dados"}
                         className="block px-2 py-2 rounded-md border border-[#F4F7F7] hover:bg-stone-100"
@@ -54,7 +54,7 @@ export default function TopbarUserMenu() {
                             Dados de cadastro
                         </h4>
                     </a>
-                </div>
+                </div> */}
                 <div className="px-2 pt-2 pb-2">
                     <button
                         onClick={async () => {

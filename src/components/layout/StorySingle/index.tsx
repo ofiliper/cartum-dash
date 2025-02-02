@@ -63,7 +63,7 @@ export default function StorySinglePage() {
         <StorySingle>
             <div className='mt-5 py-4 px-10 flex flex-col items-center justify-center border border-slate-200 bg-slate-50 rounded-md'>
                 <h4 className='font-extrabold text-xl'>Que tal compartilhar essa história?</h4>
-                <p className='text-center text-sm py-3'>Você pode optar por compartilhar esta história. Assim, outras pessoas poderão ouvi-la, e você estará contribuindo para o aumento do nosso acervo.</p>
+                <p className='sm:text-center text-sm py-3'>Você pode optar por compartilhar esta história. Assim, outras pessoas poderão ouvi-la, e você estará contribuindo para o aumento do nosso acervo.</p>
                 <div className='flex items-center gap-2 justify-center'>
                     <span className='text-xl'>Compartilhar história com a comunidade</span>
                     <Switcher

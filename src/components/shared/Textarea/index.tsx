@@ -2,8 +2,8 @@ import { ChangeEvent, useState } from "react";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 
 export default function Textarea(
-    { label, desc, value, onChange, type = 'text', maxLength }:
-        { label: string, desc?: string; value: string, onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void, type?: string; maxLength?: number; }) {
+    { label, desc, value, onChange, type = 'text', maxLength, placeholder }:
+        { label: string, desc?: string; placeholder?: string; value: string, onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void, type?: string; maxLength?: number; }) {
 
     const [inputType, setType] = useState<string>(type);
 
@@ -17,7 +17,9 @@ export default function Textarea(
                 <textarea
                     value={value}
                     onChange={(e) => onChange && onChange(e)}
-                    className="focus:outline-none w-full bg-transparent"
+                    className="focus:outline-none w-full bg-transparent h-[120px] sm:h-auto w-full"
+                    placeholder={placeholder}
+
                 />
             </div>
             {

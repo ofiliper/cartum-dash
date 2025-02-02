@@ -96,8 +96,8 @@ export default function ModalPix() {
                     {isLoading ? (
                         <Loader />
                     ) : (
-                        <div className="flex flex-col justify-center items-center gap-4">
-                            <img src={`data:image/png;base64,${payment.data.qrcode_image}`} className="w-[240px]" />
+                        <div className="flex flex-col justify-center items-center gap-2 sm:gap-4">
+                            <img src={`data:image/png;base64,${payment.data.qrcode_image}`} className="w-[150px] sm:w-[240px]" />
                             <div className="text-center bg-slate-100 border border-slate-300 py-2 px-5">
                                 <span className="break-all text-xs">{payment.data.qrcode}</span>
                             </div>
@@ -115,7 +115,7 @@ export default function ModalPix() {
                     )}
                 </div>
 
-                <div className="flex justify-center mt-10">
+                <div className="flex justify-center mt-3 sm:mt-10">
                     <button
                         className="border border-slate-300 py-3 px-5 rounded-md"
                         onClick={closeModal}

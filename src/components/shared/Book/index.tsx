@@ -21,7 +21,7 @@ export default function Book() {
                 ))
             }
 
-            <div className="w-[720px] h-screen top-[45px] -right-20 absolute  animate-fade-in flex flex-col gap-4 p-4">
+            {/* <div className="w-[720px] h-screen top-[45px] -right-20 absolute  animate-fade-in flex flex-col gap-4 p-4">
 
                 <Input
                     label="Título"
@@ -36,7 +36,7 @@ export default function Book() {
                     className="focus:outline-none bg-transparent border-b border-slate-500"
                 />
 
-            </div>
+            </div> */}
 
         </div>
     )

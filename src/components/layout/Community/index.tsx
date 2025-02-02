@@ -26,7 +26,7 @@ export default function Community() {
                         ? <Skeleton className="h-[320px] !w-[320px] shadow" />
                         : list &&
                             list.length > 0
-                            ? <div className="grid grid-cols-4 gap-4">
+                            ? <div className="sm:grid sm:grid-cols-4 gap-4">
 
 
                                 {

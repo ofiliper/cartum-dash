@@ -10,7 +10,8 @@ export default function Dashboard({ children }: { children: React.ReactElement }
             <ToastContainer />
             <div className="h-screen overflow-hidden">
                 <Topbar />
-                <div className="grid grid-cols-[3fr_10fr] gap-4 h-[90vh]">
+                <div className="sm:grid sm:grid-cols-[3fr_10fr] gap-4 h-[90vh] overflow-y-auto sm:overflow-hidden">
+
                     <Sidebar />
                     <div className="flex bg-slate-100 overflow-y-scroll">
                         {children}

@@ -2,8 +2,8 @@ import { ChangeEvent, useState } from "react";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 
 export default function Input(
-    { label, desc, value, onChange, type = 'text', ...props }:
-        { label: string, desc?: string; value: string, onChange?: (e: ChangeEvent<HTMLInputElement>) => void, type?: string }) {
+    { label, desc, value, onChange, type = 'text', placeholder = '', ...props }:
+        { label: string, desc?: string; placeholder?: string; value: string, onChange?: (e: ChangeEvent<HTMLInputElement>) => void, type?: string }) {
 
     const [inputType, setType] = useState<string>(type);
 
@@ -19,6 +19,7 @@ export default function Input(
                     onChange={(e) => onChange && onChange(e)}
                     type={inputType}
                     className="focus:outline-none w-full bg-transparent"
+                    placeholder={placeholder}
                 />
                 {
                     type === 'password' && (

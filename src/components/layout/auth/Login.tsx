@@ -29,7 +29,7 @@ export default function Login() {
         <AuthContainer>
             <div className="bg-white w-full sm:w-[560px] rounded-lg py-10 px-7 sm:px-20">
                 <div className="flex justify-center w-full mb-10">
-                    <Image
+                    <img
                         src="/images/cartum.png"
                         alt="Cartum.com.br"
                         height={50}

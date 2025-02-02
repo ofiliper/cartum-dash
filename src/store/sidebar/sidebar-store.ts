@@ -1,5 +1,5 @@
 
-import { BiBook, BiDollarCircle } from 'react-icons/bi';
+import { BiBook, BiDollarCircle, BiPaperclip } from 'react-icons/bi';
 import { BsBrush, BsFillGearFill, BsFillPeopleFill } from 'react-icons/bs';
 import { IconType } from 'react-icons/lib';
 import { create } from 'zustand';
@@ -20,15 +20,15 @@ const stateDefault: ISidebarProps = {
     current: "",
     menu: [
         {
-            icon: BsBrush,
-            title: 'Criar história',
+            icon: BiBook,
+            title: 'Minhas histórias',
             path: `/dashboard`,
             active: true,
         },
         {
-            icon: BiBook,
-            title: 'Minha Biblioteca',
-            path: `/dashboard/biblioteca`,
+            icon: BsBrush,
+            title: 'Criar história',
+            path: `/dashboard/criar`,
             active: false,
         },
         {
@@ -43,12 +43,12 @@ const stateDefault: ISidebarProps = {
             path: `/dashboard/saldo`,
             active: false,
         },
-        // {
-        //     icon: BsFillGearFill,
-        //     title: 'Preferências',
-        //     path: `/dashboard/configuracoes`,
-        //     active: false,
-        // },
+        {
+            icon: BiPaperclip,
+            title: 'Termos de uso',
+            path: `/dashboard/termos`,
+            active: false,
+        }
     ]
 };
 

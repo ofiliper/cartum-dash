@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 
 import "../assets/css/satoshi.css"
 import "../assets/css/style.css"
+import Auth from "@/components/shared/Auth";
 
 
 export default function RootLayout({
@@ -22,10 +23,6 @@ export default function RootLayout({
 
     return (
         <html lang="pt-br" >
-
-            <head>
-
-            </head>
             <body>
                 <div className="dark:bg-boxdark-2 dark:text-bodydark" >
                     {children}
@@ -33,4 +30,4 @@ export default function RootLayout({
             </body>
         </html>
     );
-}
+};

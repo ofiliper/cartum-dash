@@ -33,15 +33,6 @@ export default function Sidebar() {
                         )
                     })
                 }
-                <div className="flex justify-between items-center gap-1 text-xs mt-auto pt-3 pb-1 px-5 border-t border-stone-200">
-                    <button className="flex items-center gap-1">
-                        <BiLogOut />
-                        <span>Desconectar</span>
-                    </button>
-                    <button className="flex items-center gap-1">
-                        <BsQuestionCircle />
-                    </button>
-                </div>
             </div>
         </div>
     )

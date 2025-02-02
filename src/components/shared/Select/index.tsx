@@ -20,6 +20,7 @@ interface IOptions {
 
 interface ISelectField {
     label?: string;
+    desc?: string;
     placeholder?: string;
     options?: IOptions[];
     value?: any;
@@ -31,6 +32,7 @@ interface ISelectField {
 
 export default function Select({
     label,
+    desc,
     placeholder = "Selecione...",
     options,
     value,
@@ -82,17 +84,18 @@ export default function Select({
 
 
     return (
-
-        <div ref={selectRef} className={`w-full my-2 sm:my-4 ${width}`}>
+        <div ref={selectRef} className={`flex flex-col mb-2 w-full ${width}`}>
 
             {label && (
-                <label className="ml-2 font-bold mb-2 block text-xs sm:text-xs">
+                <label className="font-bold">
                     {label}
                 </label>
             )}
 
+            {desc && (<p className="text-sm mb-3">{desc}</p>)}
+
             <button
-                className={`border border-slate-300 bg-stone-50 px-3 sm:px-4 py-3 sm:py-3 rounded-md w-full text-left flex justify-between items-center text-xs sm:text-sm ${className}`}
+                className={`border border-slate-300 bg-transparent px-3 sm:px-4 py-3 sm:py-3 rounded-md w-full text-left flex justify-between items-center text-xs sm:text-sm bg-white ${className}`}
                 onClick={e => setActive(!active)}>
 
                 <span> {placeholderText}</span>

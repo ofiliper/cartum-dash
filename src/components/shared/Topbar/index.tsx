@@ -1,7 +1,30 @@
+'use client'
+
+import { sessionStore } from "@/store/session/session-store";
 import Image from "next/image";
-import { BiBell, BiChevronDown } from "react-icons/bi";
+import { useStore } from "zustand";
+import TopbarUserMenu from "./TopbarUserMenu";
+import { BsPlus } from "react-icons/bs";
+import { useEffect } from "react";
+import { Cookies } from "react-cookie";
+import { fnDecodeToken } from "@/utils/functions/fnDecodeToken";
 
 export default function Topbar() {
+
+    const session = useStore(sessionStore);
+    const { credits } = session.data;
+    const cookies = new Cookies();
+
+    useEffect(() => {
+
+        const { credits, id } = fnDecodeToken(cookies.get('userid'));
+        if (!id) {
+            cookies.remove("userid", { path: '/' })
+        }
+        session.fnOnChange("credits", credits)
+
+    }, [])
+
     return (
         <div className="flex items-center justify-between bg-white border-b border-stone-300 py-2 px-5 h-[7vh]">
             <div>
@@ -9,19 +32,24 @@ export default function Topbar() {
                     <img
                         src="/images/cartum.png"
                         alt=""
-                        quality={100}
-                        width={200}
-                        height={200}
+                        width={140}
+                        height={40}
                         className="w-[140px]" />
                 </a>
             </div>
             <div className="flex items-center gap-5 text-lg">
 
-                <button className="bg-white p-3 hover:bg-slate-100 rounded-md transition-all linear-ease border border-transparent hover:border-slate-100 pointer">
-                    <BiBell />
-                </button>
+                <a href="/dashboard/criar"
+                    className="flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-full bg-rose-500 flex items-center justify-center text-white">
+                        <BsPlus />
+                    </span>
+                    <span className="text-sm font-bold">
+                        Criar história
+                    </span>
+                </a>
 
-                <button className="border-2 border-slate-100 rounded-full pointer flex items-center gap-2 px-4 py-2">
+                <a href="/dashboard/saldo" className="border-2 border-slate-100 rounded-full pointer flex items-center gap-2 px-4 py-2">
                     <Image
                         src="/images/coin.png"
                         alt=""
@@ -29,15 +57,11 @@ export default function Topbar() {
                         height={200}
                         className="!w-[20px] !h-[20px] rounded-full" />
                     <span className="text-sm font-extrabold">
-                        3 créditos
+                        {credits} {credits > 1 ? ' Créditos' : ' Crédito'}
                     </span>
-                </button>
+                </a>
 
-                <div className="flex items-center gap-1 text-xs font-bold">
-                    <span>Minha conta</span>
-                    <BiChevronDown />
-                </div>
-
+                <TopbarUserMenu />
             </div>
         </div>
     )

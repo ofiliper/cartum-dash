@@ -1,0 +1,20 @@
+.rhap_container {
+    /* background-color: #121212; */
+    /* Exemplo de fundo escuro */
+    color: #ffffff;
+    /* Cor branca para textos */
+}
+
+.rhap_play-pause-button {
+    transform: scale(1.5);
+}
+
+.rhap_progress-indicator,
+.rhap_progress-filled {
+    background: purple;
+}
+
+.rhap_play-pause-button>svg {
+    color: purple !important;
+    /* Barra de progresso com verde Spotify */
+}

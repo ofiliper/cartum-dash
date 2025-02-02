@@ -17,7 +17,7 @@ export default function Sidebar() {
     console.log(pathname)
 
     return (
-        <div className={`z-[99] fixed sm:relative bg-white h-[93vh] transition-all linear-ease !left-[-900px] sm:!left-0 ${menuIsOpen ? ('!left-0') : ''}`}>
+        <div className={`z-[99] fixed sm:relative bg-white h-[93vh] transition-all linear-ease left-[-900px] sm:!left-0 ${menuIsOpen ? ('!left-0') : ''}`}>
             <div className="flex flex-col h-[100%] gap-1 py-2 pt-10 px-5">
                 {
                     menu.map((item: any, index: number) => {

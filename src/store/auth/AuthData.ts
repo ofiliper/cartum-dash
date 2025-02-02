@@ -12,6 +12,7 @@ export const useAuthData = () => {
     const cookies = new Cookies();
     const session = useStore(sessionStore);
     const _headers = { Authorization: `Bearer ${cookies.get("userid")}` }
+    const website_url = process.env.NEXT_PUBLIC_API_URL;
 
     const fnFetchLogin = async (data: { email: string; password: string }) => {
 
@@ -21,7 +22,7 @@ export const useAuthData = () => {
         try {
 
             let _result = await fnFetch({
-                url: `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
+                url: `${website_url}/auth/login`,
                 method: 'POST',
                 body: _obj
             })
@@ -49,7 +50,7 @@ export const useAuthData = () => {
     const fnFetchValidator = async () => {
         try {
             let _result = await fnFetch({
-                url: `${process.env.NEXT_PUBLIC_API_URL}/auth/validator`,
+                url: `${website_url}/auth/validator`,
                 method: 'POST',
                 headers: _headers
             })
@@ -79,7 +80,7 @@ export const useAuthData = () => {
         try {
 
             let _result = await fnFetch({
-                url: `${process.env.NEXT_PUBLIC_API_URL}/auth/reset-pass`,
+                url: `${website_url}/auth/reset-pass`,
                 method: 'POST',
                 body: _obj
             })
@@ -111,7 +112,7 @@ export const useAuthData = () => {
         try {
 
             let _result = await fnFetch({
-                url: `${process.env.NEXT_PUBLIC_API_URL}/auth/recover-pass`,
+                url: `${website_url}/auth/recover-pass`,
                 method: 'POST',
                 body: _obj
             })
@@ -146,7 +147,7 @@ export const useAuthData = () => {
         try {
 
             let _result = await fnFetch({
-                url: `${process.env.NEXT_PUBLIC_API_URL}/auth/signup`,
+                url: `${website_url}/auth/signup`,
                 method: 'POST',
                 body: _obj
             })

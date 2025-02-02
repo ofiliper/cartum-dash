@@ -8,7 +8,7 @@ const publicRoutes = [
     { path: '/auth/recuperar', whenAuthenticated: 'redirect' },
 ];
 
-const REDIRECT_WHEN_NOT_AUTHENTICATED_ROUTE = '/auth/login'
+const REDIRECT_WHEN_NOT_AUTHENTICATED_ROUTE = '/auth/login' 
 
 export function middleware(req: NextRequest) {
 

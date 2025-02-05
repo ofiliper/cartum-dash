@@ -40,7 +40,7 @@ export default function Step1() {
     }
 
     const createStory = () => {
-        if (credits <= 2) {
+        if (credits <= 0) {
             toast.error("Você não possui créditos")
             setTimeout(() => router.push("/dashboard/saldo"), 2000)
             return

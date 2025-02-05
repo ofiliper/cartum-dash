@@ -10,17 +10,17 @@ export default function Step2() {
     const router = useRouter();
     const userHook = useUserData();
 
-    useEffect(() => {
-        storyHook.fnFetchCreateStory()
-            .then((data) => {
-                userHook.fnFetchUser();
-                router.push(`/dashboard/${data.id_story}`)
-            })
-            .catch(() => {
-                toast.error("Não foi possível gerar a sua história.")
-                router.push(`/dashboard/criar`)
-            })
-    }, []);
+    // useEffect(() => {
+    //     storyHook.fnFetchCreateStory()
+    //         .then((data) => {
+    //             userHook.fnFetchUser();
+    //             router.push(`/dashboard/${data.id_story}`)
+    //         })
+    //         .catch(() => {
+    //             toast.error("Não foi possível gerar a sua história.")
+    //             router.push(`/dashboard/criar`)
+    //         })
+    // }, []);
 
     return (
         <div className="w-full h-screen flex flex-col items-center justify-center">
@@ -30,11 +30,11 @@ export default function Step2() {
                 alt="Papel"
                 className="w-[200px] h-[200px] animate-pulse rotate-[-5deg]" />
 
-            <h2 className="font-extrabold text-3xl animate-pulse">
+            <h2 className="font-extrabold text-3xl animate-pulse text-center">
                 Sua história está sendo gerada
             </h2>
 
-            <h4 className="text-xl">
+            <h4 className="text-xl text-center">
                 Por favor, aguarde...
             </h4>
 

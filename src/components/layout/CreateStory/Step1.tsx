@@ -17,12 +17,14 @@ import Terms from "./modal/Terms";
 import CreateStoryConfirm from "./modal/CreateStoryConfirm";
 import { sessionStore } from "@/store/session/session-store";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 export default function Step1() {
 
     const story = useStore(createStoryStore);
     const action = useStore(actionStore);
     const session = useStore(sessionStore);
+    const router = useRouter();
 
     const { title, characters, challenges, gender, age, content, acceptTerms } = story.data;
     const { modalContent } = action.data;
@@ -38,7 +40,11 @@ export default function Step1() {
     }
 
     const createStory = () => {
-        if (credits <= 0) return toast.error("Você não possui créditos");
+        if (credits <= 2) {
+            toast.error("Você não possui créditos")
+            setTimeout(() => router.push("/dashboard/saldo"), 2000)
+            return
+        };
 
         if (content === '' || gender === '' || characters === '') return toast.error("Preencha corretamente os campos.")
 

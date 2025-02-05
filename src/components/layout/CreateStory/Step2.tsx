@@ -10,17 +10,17 @@ export default function Step2() {
     const router = useRouter();
     const userHook = useUserData();
 
-    // useEffect(() => {
-    //     storyHook.fnFetchCreateStory()
-    //         .then((data) => {
-    //             userHook.fnFetchUser();
-    //             router.push(`/dashboard/${data.id_story}`)
-    //         })
-    //         .catch(() => {
-    //             toast.error("Não foi possível gerar a sua história.")
-    //             router.push(`/dashboard/criar`)
-    //         })
-    // }, []);
+    useEffect(() => {
+        storyHook.fnFetchCreateStory()
+            .then((data) => {
+                userHook.fnFetchUser();
+                router.push(`/dashboard/${data.id_story}`)
+            })
+            .catch(() => {
+                toast.error("Não foi possível gerar a sua história.")
+                router.push(`/dashboard/criar`)
+            })
+    }, []);
 
     return (
         <div className="w-full h-screen flex flex-col items-center justify-center">
